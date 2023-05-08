@@ -198,6 +198,8 @@ class ApiController extends BaseController
                 continue;
             }
             $accounts[] = [
+                //添加ID字段唯一对应账号,可用于排序等情况
+                'id' => $account->id,
                 'username' => $account->username,
                 'password' => $account->password,
                 'status' => $account->message == "正常" && ((time() - strtotime($account->last_check)) < (($account->check_interval + 2) * 60)),
